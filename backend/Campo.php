@@ -1,48 +1,144 @@
 <?php
-class Campo{
-    var $campo;
-    var $type;
 
-    function Campo($campo,$type){
-        $this->campo=$campo;
-        $this->type=$type;
-        var_dump($this->type);
+class campo
+{
+    var $type_error;
+    var $type_error_campo_invalido = "invalido";
+    var $type_error_campo_valido = "valido";
+    var $type_error_campo_campo_puede_ser_vacio = "vacio";
+    var $type_data_string = "s";
+    var $type_data_int = "i";
+    var $type_data_float = "f";
+    var $posicion;
+    var $campo;
+    var $tipo_dato;
+    var $obligatorio;
+    var $estado;
+
+    function Campo($posicion, $campo, $dato, $oblig)
+    {
+        $this->posicion = $posicion;
+        $this->campo = $campo;
+        $this->tipo_dato = $dato;
+        $this->obligatorio = $oblig;
 
     }
-    public function validar(){
-        $result=false;
-        switch ($this->type){
-            case "s":
-                if($this->validarString()){
-                    $result=true;
+
+    public function   validarCampo()
+    {
+        $result = false;
+        //var_dump($this->tipo_dato);
+        switch ($this->tipo_dato) {
+
+            case $this->type_data_string:
+
+                if ($this->validarString()) {
+                    // var_dump($this->tipo_dato);
+                    $result = true;
+                };
+            // var_dump($this->tipo_dato);
+            case $this->type_data_int:
+                if ($this->validarInt()) {
+                    var_dump($this->tipo_dato);
+                    $result = true;
                 };
 
+            case $this->type_data_float:
+                if ($this->validarFloat()) {
+                    $result = true;
+                };
 
-            default:
-
-                break;
         }
-        //
-        echo $this->validarString();
-        echo var_dump($this->validarString());
+        //var_dump($this->tipo_dato);
+        $this->setEstado();
         return $result;
+
     }
-    function  validarString(){
-        if($this->campo!=null){
 
+    public function validarString()
+    {
+
+        if ($this->campo != null) {
+            $this->type_error = $this->type_error_campo_valido;
             return true;
-        }
-        else{
+        } else {
+            if (!$this->esCampoObligatorio()) {
+                $this->type_error = $this->type_error_campo_campo_puede_ser_vacio;
+                return true;
+            } else {
+                $this->type_error = $this->type_error_campo_invalido;
+                return false;
+            }
 
+
+        }
+        // setEstado();
+    }
+
+    public function validarInt()
+    {
+        if ($this->campo != 0) {
+            $this->type_error = $this->type_error_campo_valido;
+            return true;
+        } else {
+            if (!$this->esCampoObligatorio()) {
+                $type_error = $this->type_error_campo_campo_puede_ser_vacio;
+                return true;
+            } else {
+                $type_error = $this->type_error_campo_invalido;
+                return false;
+            }
+        }
+        //  setEstado();
+    }
+
+    /**
+     * @param $campo
+     */
+    public function validarFloat()
+    {
+        if ($this->campo != 0) {
+            return true;
+        } else {
+            if (!$this->esCampoObligatorio()) {
+                $type_error = $this->type_error_campo_campo_puede_ser_vacio;
+                return true;
+            } else {
+                $type_error = $this->type_error_campo_invalido;
+                return false;
+            }
+        }
+        // setEstado();
+    }
+
+    public function esCampoObligatorio()
+    {
+        if ($this->obligatorio) {
+            return true;
+        } else {
             return false;
         }
+    }
 
+    function setEstado()
+    {
+
+        $this->estado = array('posicion' => $this->posicion, 'valor' => $this->campo, 'type_error' => $this->type_error);
+        // var_dump($this->estado);
+    }
+
+    public function getEstado()
+    {
+        return $this->estado;
     }
 
 
 }
-$obj= new Campo("hola",'s');
 
- var_dump($obj->validar());
-
+$obj = new campo(1, "hola", "s", true);
+$obj1 = new campo(4,4,"i",true);
+$obj->validarCampo();
+$obj1->validarCampo();
+var_dump($obj->getEstado());
+var_dump($obj1->getEstado());
 ?>
