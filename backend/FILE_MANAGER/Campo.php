@@ -3,12 +3,18 @@
 class campo
 {
     var $type_error;
+
     var $type_error_campo_invalido = "invalido";
     var $type_error_campo_valido = "valido";
     var $type_error_campo_campo_puede_ser_vacio = "vacio";
+
     var $type_data_string = "s";
     var $type_data_int = "i";
     var $type_data_float = "f";
+    var $type_data_date = "d";
+    var $type_data_boolean = "b";
+
+
     var $posicion;
     var $campo;
     var $tipo_dato;
@@ -26,53 +32,52 @@ class campo
 
     public function   validarCampo()
     {
-        $result = false;
-        //var_dump($this->tipo_dato);
-        switch ($this->tipo_dato) {
 
+        var_dump($this->tipo_dato);
+        switch ($this->tipo_dato) {
             case $this->type_data_string:
 
-                if ($this->validarString()) {
-                    // var_dump($this->tipo_dato);
-                    $result = true;
-                };
-            // var_dump($this->tipo_dato);
+                $this->validarString();
+                break;
             case $this->type_data_int:
-                if ($this->validarInt()) {
-                    var_dump($this->tipo_dato);
-                    $result = true;
-                };
 
+                $this->validarInt();
+                break;
             case $this->type_data_float:
-                if ($this->validarFloat()) {
-                    $result = true;
-                };
 
+                $this->validarFloat();
+                break;
         }
-        //var_dump($this->tipo_dato);
         $this->setEstado();
-        return $result;
+
+
+
 
     }
 
     public function validarString()
     {
 
-        if ($this->campo != null) {
+        if ($this->campo != null ) {
+
             $this->type_error = $this->type_error_campo_valido;
+
             return true;
         } else {
+
             if (!$this->esCampoObligatorio()) {
+
                 $this->type_error = $this->type_error_campo_campo_puede_ser_vacio;
                 return true;
             } else {
+
                 $this->type_error = $this->type_error_campo_invalido;
                 return false;
             }
 
 
         }
-        // setEstado();
+
     }
 
     public function validarInt()
@@ -82,33 +87,31 @@ class campo
             return true;
         } else {
             if (!$this->esCampoObligatorio()) {
-                $type_error = $this->type_error_campo_campo_puede_ser_vacio;
+               $this->type_error = $this->type_error_campo_campo_puede_ser_vacio;
                 return true;
             } else {
-                $type_error = $this->type_error_campo_invalido;
+                $this->type_error = $this->type_error_campo_invalido;
                 return false;
             }
         }
-        //  setEstado();
+
     }
 
-    /**
-     * @param $campo
-     */
+
     public function validarFloat()
     {
         if ($this->campo != 0) {
             return true;
         } else {
             if (!$this->esCampoObligatorio()) {
-                $type_error = $this->type_error_campo_campo_puede_ser_vacio;
+                $this->type_error = $this->type_error_campo_campo_puede_ser_vacio;
                 return true;
             } else {
-                $type_error = $this->type_error_campo_invalido;
+                $this->type_error = $this->type_error_campo_invalido;
                 return false;
             }
         }
-        // setEstado();
+
     }
 
     public function esCampoObligatorio()
@@ -124,21 +127,21 @@ class campo
     {
 
         $this->estado = array('posicion' => $this->posicion, 'valor' => $this->campo, 'type_error' => $this->type_error);
-        // var_dump($this->estado);
+       // var_dump($this->estado);
     }
 
     public function getEstado()
     {
-        return $this->estado;
+        return json_encode($this->estado);
     }
 
 
 }
-
+/*
 $obj = new campo(1, "hola", "s", true);
 $obj1 = new campo(4,4,"i",true);
 $obj->validarCampo();
 $obj1->validarCampo();
 var_dump($obj->getEstado());
 var_dump($obj1->getEstado());
-?>
+*/
