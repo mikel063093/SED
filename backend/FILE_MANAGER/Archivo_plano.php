@@ -19,7 +19,7 @@ class Archivo_plano
             $this->num = count($data);
             if($this->validar($this->numcampo)){
 
-
+             echo "bien";
             }else{
                 echo "esta mal";
             }
