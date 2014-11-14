@@ -23,7 +23,7 @@ class Archivo_plano
             $this->num = count($data);
             if ($this->validar($this->numcampo)) {
                 array_push($this->arrayLinas, $data);
-               // var_dump($this->arrayLinas);
+               var_dump($this->arrayLinas);
              //   echo "bien";
 
             } else {

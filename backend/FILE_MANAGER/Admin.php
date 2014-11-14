@@ -26,18 +26,9 @@ class  Admin {
          $arrayLinea= $this->archivoPlano->getArrayLinas();
         //var_dump($arrayLinea);
         for($i=0;$i<count($arrayLinea); $i++){
+            $this->getLinea($arrayLinea[$i]);
             // gettype($this->getLinea($arrayLinea[$i]));
-            switch(gettype($this->getLinea($arrayLinea[$i]))){
-                case "string":
-                    $this->setValidate("s",$this->getLinea($arrayLinea[$i]),$i);
-                    break;
-                case "integer":
-                    $this->setValidate("i",$this->getLinea($arrayLinea[$i]),$i);
-                    break;
-                default:
-                    echo "(:";
-                    break;
-            }
+
 
         }
 
@@ -48,13 +39,29 @@ class  Admin {
         //save bd
     }
     public function  getLinea($arraysito){
-        for ($i=0; $i<count($arraysito); $i++){
-            return $arraysito[$i];
+        //echo count($arraysito);
+        for ($c=0;$c<count($arraysito);$c++){
+            //echo $c;
+            //var_dump($arraysito);
+            //var_dump($arraysito[$c]);
+            //return $arraysito[$c];
+            switch(gettype($arraysito[$c])){
+                case "string":
+                    $this->setValidate("s",$arraysito[$c],$c);
+                    break;
+                case "integer":
+                    $this->setValidate("i",$arraysito[$c],$c);
+                    break;
+                default:
+                    echo "(:";
+                    break;
+            }
+
         }
     }
     public function setValidate($tyeDate, $data, $position,$boolean=true){
         $this->registro-> Add($position,$data,$tyeDate,$boolean);
-        var_dump($this->registro);
+        //var_dump($this->registro);
     }
 
 
