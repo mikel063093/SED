@@ -13,11 +13,13 @@ class Archivo_plano
         // echo $linea;
         while ($data = fgetcsv($fp, 1000, "\t")) {
             $this->num = count($data);
+
             echo "<p> $this->num campos en la linea $this->fila: <br/></p>\n";
+              var_dump($data);
             $this->fila++;
-            //  for($c=0; $c < $this->num; $c++){
-            // echo $data[$c]."\n";
-            // }
+              for($c=0; $c < $this->num; $c++){
+                    echo $data[$c]."\n";
+              }
 
         }
         fclose($fp);
@@ -27,6 +29,7 @@ class Archivo_plano
     /**
      * @param $num_campo
      */
+
     function  validar($num_campo)
     {
         if ($this->num == $num_campo) {
