@@ -5,10 +5,14 @@ class Archivo_plano
     public $num;
     public $fila = 1;
     private $numcampo;
- function Archivo_plano($numcampo){
-     $this->numcampo = $numcampo;
+    private $arrayLinas;
 
- }
+    function Archivo_plano($numcampo)
+    {
+        $this->numcampo = $numcampo;
+        $this->arrayLinas = array();
+    }
+
     function leer_csv()
     {
 
@@ -17,18 +21,20 @@ class Archivo_plano
         // echo $linea;
         while ($data = fgetcsv($fp, 1000, "\t")) {
             $this->num = count($data);
-            if($this->validar($this->numcampo)){
+            if ($this->validar($this->numcampo)) {
+                array_push($this->arrayLinas, $data);
+               // var_dump($this->arrayLinas);
+             //   echo "bien";
 
-             echo "bien";
-            }else{
+            } else {
                 echo "esta mal";
             }
-            echo "<p> $this->num campos en la linea $this->fila: <br/></p>\n";
-             // var_dump($data);
+          //  echo "<p> $this->num campos en la linea $this->fila: <br/></p>\n";
+            // var_dump($data);
             $this->fila++;
-             // for($c=0; $c < $this->num; $c++){
-               //     echo $data[$c]."\n";
-             // }
+            // for($c=0; $c < $this->num; $c++){
+            //     echo $data[$c]."\n";
+            // }
 
         }
         fclose($fp);
@@ -52,11 +58,19 @@ class Archivo_plano
         }
     }
 
+    /**
+     * @return array
+     */
+    public function getArrayLinas()
+    {
+        return $this->arrayLinas;
+    }
+
 
 }
 
-$obj = new Archivo_plano(10);
-$obj->leer_csv();
+//$obj = new Archivo_plano(10);
+//$obj->leer_csv();
 //$obj->validar(10);
 //var_dump($obj);
 ?>
