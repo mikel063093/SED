@@ -15,7 +15,7 @@ class Archivo_plano
             $this->num = count($data);
 
             echo "<p> $this->num campos en la linea $this->fila: <br/></p>\n";
-              var_dump($data);
+             // var_dump($data);
             $this->fila++;
               for($c=0; $c < $this->num; $c++){
                     echo $data[$c]."\n";
