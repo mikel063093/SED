@@ -7,6 +7,7 @@ class Archivo_plano
     private $numcampo;
  function Archivo_plano($numcampo){
      $this->numcampo = $numcampo;
+
  }
     function leer_csv()
     {
@@ -57,5 +58,5 @@ class Archivo_plano
 $obj = new Archivo_plano(10);
 $obj->leer_csv();
 //$obj->validar(10);
-var_dump($obj);
+//var_dump($obj);
 ?>

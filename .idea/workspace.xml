@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6d0aed6f-6e4c-4d56-ad49-830a8e1dbe71" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/FILE_MANAGER/Archivo_plano.php" afterPath="$PROJECT_DIR$/backend/FILE_MANAGER/Archivo_plano.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/FILE_MANAGER/test/csv.txt" afterPath="$PROJECT_DIR$/backend/FILE_MANAGER/test/csv.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SED.iws" />
@@ -39,21 +38,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registro.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registro.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/FILE_MANAGER/registro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33009708" vertical-offset="935" max-vertical-offset="1360">
+            <state vertical-scroll-proportion="-5.230769" vertical-offset="935" max-vertical-offset="1360">
               <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Archivo_plano.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Archivo_plano.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/FILE_MANAGER/Archivo_plano.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="1139">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6699029" vertical-offset="744" max-vertical-offset="1156">
+              <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -290,7 +289,13 @@
       <option name="project" value="LOCAL" />
       <updated>1415932110170</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add class Archivo plano">
+      <created>1415934769281</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1415934769281</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -339,7 +344,8 @@
     <MESSAGE value="add Campo" />
     <MESSAGE value="add Register class" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="add class Archivo plano" />
+    <option name="LAST_COMMIT_MESSAGE" value="add class Archivo plano" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -488,18 +494,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/FILE_MANAGER/Archivo_plano.php">
+    <entry file="file://$PROJECT_DIR$/backend/FILE_MANAGER/registro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="1139">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="935" max-vertical-offset="1360">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/FILE_MANAGER/registro.php">
+    <entry file="file://$PROJECT_DIR$/backend/FILE_MANAGER/Archivo_plano.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33009708" vertical-offset="935" max-vertical-offset="1360">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6699029" vertical-offset="744" max-vertical-offset="1156">
+          <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
           <folding />
         </state>
       </provider>
