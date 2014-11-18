@@ -1,10 +1,11 @@
 <?php
 include ('Registro.php');
 include ('Archivo_plano.php');
+include ('log.php');
 class  Admin {
     private  $numerCampos;
 
-
+    private $Log;
     private  $registro;
     private  $archivoPlano;
     function  __construct($numeroCampos){
@@ -13,6 +14,8 @@ class  Admin {
         $this->archivoPlano= new Archivo_plano($this->numerCampos);
         $this->archivoPlano->leer_csv();
         $this->config();
+
+        $this->Log= new log();
     }
 
     public function config(){
@@ -84,15 +87,17 @@ class  Admin {
 
                 break;
             case 'invalido':
-
+                    $this->Log->load( $obj->getEstado() ." EN LA LINEA ".count($this->archivoPlano->getArrayLinas()));
                 //log
                 echo " invalido \n";
                 break;
             case 'vacio':
+                $this->Log->load( $obj->getEstado());
                 //log
                 echo " vaico \n ";
                 break;
             case 'NULL':
+                $this->Log->load( $obj->getEstado());
                 //log
                 echo " NULL ";
                 break;

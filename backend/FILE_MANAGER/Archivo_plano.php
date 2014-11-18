@@ -3,7 +3,7 @@
 class Archivo_plano
 {
     public $num;
-    public $fila = 1;
+    public $fila = 0;
     private $numcampo;
     private $arrayLinas;
 
@@ -65,6 +65,15 @@ class Archivo_plano
     {
         return $this->arrayLinas;
     }
+
+    /**
+     * @return int
+     */
+    public function getFila()
+    {
+        return $this->fila;
+    }
+
 
 
 }

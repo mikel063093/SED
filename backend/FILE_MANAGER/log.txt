@@ -1,0 +1,16 @@
+{"posicion":2,"valor":"","type_error":"invalido"}
+{"posicion":2,"valor":"","type_error":"invalido"}
+{"posicion":2,"valor":"","type_error":"invalido"}
+{"posicion":2,"valor":"","type_error":"invalido"}
+{"posicion":2,"valor":"","type_error":"invalido"}
+{"posicion":2,"valor":"","type_error":"invalido"}
+{"posicion":2,"valor":"","type_error":"invalido"}
+{"posicion":2,"valor":"","type_error":"invalido"}
+4
+4
+4
+4
+{"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 4
+{"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 4
+{"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 4
+{"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 4
