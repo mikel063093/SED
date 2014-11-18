@@ -13,7 +13,7 @@ class log{
     function  load($message)
     {
         $this->message = $message;
-        $error = fopen("log.txt","a") or
+        $error = fopen("log.txt","a+") or
         die("Problemas en la creacion");
         fputs($error,$message);
         fputs($error,"\n");
@@ -22,5 +22,6 @@ class log{
 
 
 }
+// casi que no
 //$nuevo = new log();
 //$nuevo->load("hola que mas jajajaj kkkkkk");
