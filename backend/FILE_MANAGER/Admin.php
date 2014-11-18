@@ -60,9 +60,46 @@ class  Admin {
         }
     }
     public function setValidate($tyeDate, $data, $position,$boolean=true){
-        $this->registro-> Add($position,$data,$tyeDate,$boolean);
+        $this->ValidarCampo($this->registro->Add($position,$data,$tyeDate,$boolean));
+
         //var_dump($this->registro);
     }
+    function ValidarCampo($obj){
+       // $this->Estado=$obj->getEstado();
+        $obJson=json_decode( $obj->getEstado(),true);
+
+        switch ($obJson["type_error"]) {
+            case 'valido':
+                if(count($this->registro->getReglas()) < $this->registro->getNumeroCampos()) {
+                    $reglas = $this->registro->getReglas();
+
+                    echo "valido \n ";
+                    array_push($reglas, $obj);
+
+                    $this->registro->setReglas($reglas);
+                }
+                else{
+                    echo "muchas reglas :( \n ";
+                }
+
+                break;
+            case 'invalido':
+
+                //log
+                echo " invalido \n";
+                break;
+            case 'vacio':
+                //log
+                echo " vaico \n ";
+                break;
+            case 'NULL':
+                //log
+                echo " NULL ";
+                break;
+        }
+    }
+
+
 
 
 }

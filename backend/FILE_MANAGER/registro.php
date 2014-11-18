@@ -12,6 +12,7 @@ class Registro
 	var $Separador;
 	var $Reglas;
 
+
 	function __construct($numerCampos)
 	{
 		$this->NumeroCampos=$numerCampos;
@@ -23,6 +24,8 @@ class Registro
 		$obj->validarCampo();
 		
 		$this->Validar($obj);
+
+        return $obj;
 		
 	}
 	function Validar($obj){
@@ -39,15 +42,19 @@ class Registro
 				else{
 					echo "muchas reglas :( \n ";
 				}
-				
+
 				break;
 			case 'invalido':
+
+                //log
 				echo " invalido \n";
 				break;
 			case 'vacio':
+                //log
 				echo " vaico \n ";
-				break;	
+				break;
 		    case 'NULL':
+                //log
 				echo " NULL ";
 				break;
 		}
@@ -56,6 +63,32 @@ class Registro
 
 		 
 	}
+
+    /**
+     * @return array
+     */
+    public function getReglas()
+    {
+        return $this->Reglas;
+    }
+
+    /**
+     * @param array $Reglas
+     */
+    public function setReglas($Reglas)
+    {
+        $this->Reglas = $Reglas;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getNumeroCampos()
+    {
+        return $this->NumeroCampos;
+    }
+
 
 }
 /**
