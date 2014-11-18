@@ -22,5 +22,6 @@ class log{
 
 
 }
+// casi que no
 //$nuevo = new log();
 //$nuevo->load("hola que mas jajajaj kkkkkk");
