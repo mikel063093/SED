@@ -2,19 +2,27 @@
 include ('Registro.php');
 include ('Archivo_plano.php');
 include ('log.php');
+include ('../../bin/base_sistema.php');
+include ('../../models/estudiantes.php');
 class  Admin {
     private  $numerCampos;
 
     private $Log;
     private  $registro;
     private  $archivoPlano;
+    private $bd;
+    private $estuiante;
+
     function  __construct($numeroCampos){
 
         $this->numerCampos=$numeroCampos;
         $this->archivoPlano= new Archivo_plano($this->numerCampos);
         $this->archivoPlano->leer_csv();
         $this->config();
+        $this->bd= base_sistema::$base;
 
+        ADODB_Active_Record::SetDatabaseAdapter($this->bd);
+       // $this->estuiante= new estudiantes();
         $this->Log= new log();
     }
 
@@ -102,6 +110,36 @@ class  Admin {
                 echo " NULL ";
                 break;
         }
+
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBd()
+    {
+        return $this->bd;
+    }
+
+    /**
+     * @param estudiantes $estuiante
+     */
+    public function addEstuiante($nombre,$codigo,$identificacion,$email,$photo,$login,$identificador)
+
+    {
+        $datos = array('nombre' => $nombre,'codigo'=>$codigo,'identificacion'=>$identificacion,'email'=>$email,'foto'=>$photo,
+            'login'=>$login,'identificador'=>$identificador );
+        $this->estuiante = new estudiantes(base_sistema::$base,$datos);
+        $this->estuiante->save();
+    }
+
+
+    /**
+     * @return estudiantes
+     */
+    public function getEstuiante()
+    {
+        return $this->estuiante;
     }
 
 
@@ -110,3 +148,5 @@ class  Admin {
 }
 $admin = new Admin(10);
 $admin->validar();
+var_dump($admin->getBd());
+$admin->addEstuiante("hector","1230812308","106175765","hecotr@gmail.com","http://google.com/photo","hecotr14","1209830");
