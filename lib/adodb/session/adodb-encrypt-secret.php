@@ -17,8 +17,8 @@ if (!is_dir(HORDE_BASE)) {
 	return 0;
 }
 
-include_once HORDE_BASE . '/lib/Horde.php';
-include_once HORDE_BASE . '/lib/Secret.php';
+include_once HORDE_BASE . '/activeRecord/Horde.php';
+include_once HORDE_BASE . '/activeRecord/Secret.php';
 
 /**
 

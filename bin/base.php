@@ -7,7 +7,7 @@
 // http://www.renacersantaclara.org/academico
 //
 //*******************************************************************
-include '../../lib/adodb/adodb.inc.php';
+include '../../activeRecord/adodb/adodb.inc.php';
  class base 
  {
  		private $server; 
