@@ -2,42 +2,33 @@
 include ('Registro.php');
 include ('Archivo_plano.php');
 include ('log.php');
+include ('../../testMike/DBconfig.php');
+//include ('../../testMike/model/estudiantes.php');
 class  Admin {
     private  $numerCampos;
-
     private $Log;
     private  $registro;
     private  $archivoPlano;
     function  __construct($numeroCampos){
-
         $this->numerCampos=$numeroCampos;
         $this->archivoPlano= new Archivo_plano($this->numerCampos);
         $this->archivoPlano->leer_csv();
         $this->config();
-
         $this->Log= new log();
     }
-
     public function config(){
         $this->registro= new Registro($this->numerCampos);
         //configura cmapos
-
     }
-
     public function   validar(){
         //ya teniendo la configuraciond e los campos se validad la linea del archivo plano
-         $arrayLinea= $this->archivoPlano->getArrayLinas();
+        $arrayLinea= $this->archivoPlano->getArrayLinas();
         //var_dump($arrayLinea);
         for($i=0;$i<count($arrayLinea); $i++){
             $this->getLinea($arrayLinea[$i]);
             // gettype($this->getLinea($arrayLinea[$i]));
-
-
         }
-
-
     }
-
     public function  cargar(){
         //save bd
     }
@@ -59,35 +50,31 @@ class  Admin {
                     echo "(:";
                     break;
             }
-
         }
     }
     public function setValidate($tyeDate, $data, $position,$boolean=true){
         $this->ValidarCampo($this->registro->Add($position,$data,$tyeDate,$boolean));
-
         //var_dump($this->registro);
     }
     function ValidarCampo($obj){
-       // $this->Estado=$obj->getEstado();
+        // $this->Estado=$obj->getEstado();
         $obJson=json_decode( $obj->getEstado(),true);
-
         switch ($obJson["type_error"]) {
             case 'valido':
                 if(count($this->registro->getReglas()) < $this->registro->getNumeroCampos()) {
                     $reglas = $this->registro->getReglas();
-
                     echo "valido \n ";
                     array_push($reglas, $obj);
+
 
                     $this->registro->setReglas($reglas);
                 }
                 else{
                     echo "muchas reglas :( \n ";
                 }
-
                 break;
             case 'invalido':
-                    $this->Log->load( $obj->getEstado() ." EN LA LINEA ".count($this->archivoPlano->getArrayLinas()));
+                $this->Log->load( $obj->getEstado() ." EN LA LINEA ".count($this->archivoPlano->getArrayLinas()));
                 //log
                 echo " invalido \n";
                 break;
@@ -103,10 +90,11 @@ class  Admin {
                 break;
         }
     }
-
-
-
-
 }
 $admin = new Admin(10);
 $admin->validar();
+$es = new estudiantes();
+var_dump($es);
+
+$doce = new docentes();
+var_dump($doce);
