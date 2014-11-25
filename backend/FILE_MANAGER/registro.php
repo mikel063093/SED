@@ -17,6 +17,7 @@ class Registro
     }
     function Add($posicion, $campo, $tipodato, $oblig ){
         $obj = new campo($posicion, $campo, $tipodato, $oblig);
+        //var_dump($obj);
         $obj->validarCampo();
 
         $this->Validar($obj);
@@ -28,12 +29,22 @@ class Registro
         $obJson=json_decode($this->Estado,true);
         switch ($obJson["type_error"]) {
             case 'valido':
-                if(count($this->Reglas) < $this->NumeroCampos){
+                echo "contador reglas ". count($this->getReglas(),  COUNT_NORMAL)."     ";
+                if(sizeof($this->Reglas) <= $this->NumeroCampos){
                     echo "valido \n ";
+                    //var_dump($obj);
                     array_push($this->Reglas, $obj);
+
+                    if(sizeof($this->Reglas) == $this->NumeroCampos+1){
+
+                        $this->Reglas=array();
+                    }
+
                 }
                 else{
-                    echo "muchas reglas :( \n ";
+                   // $this->Reglas=array();
+                    echo count($this->Reglas);
+                   // echo "muchas reglas :( \n ";
                 }
                 break;
             case 'invalido':
@@ -42,11 +53,11 @@ class Registro
                 break;
             case 'vacio':
                 //log
-                echo " vaico \n ";
+              //  echo " vaico \n ";
                 break;
             case 'NULL':
                 //log
-                echo " NULL ";
+               // echo " NULL ";
                 break;
         }
 

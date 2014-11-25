@@ -24,7 +24,7 @@ class campo
     }
     public function   validarCampo()
     {
-        var_dump($this->tipo_dato);
+        //var_dump($this->tipo_dato);
         switch ($this->tipo_dato) {
             case $this->type_data_string:
                 $this->validarString();

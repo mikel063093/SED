@@ -17,13 +17,11 @@ class Archivo_plano
         // echo $linea;
         while ($data = fgetcsv($fp, 1000, "\t")) {
             $this->num = count($data);
-            if ($this->validar($this->numcampo)) {
+            //if ($this->validar($this->numcampo
                 array_push($this->arrayLinas, $data);
-                var_dump($this->arrayLinas);
+                var_dump($data);
                 //   echo "bien";
-            } else {
-                echo "esta mal";
-            }
+           // }
             //  echo "<p> $this->num campos en la linea $this->fila: <br/></p>\n";
             // var_dump($data);
             $this->fila++;
