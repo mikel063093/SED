@@ -95,11 +95,13 @@ class  Admin
                         array_push($this->reglasValidas, $this->reglasTemp);
                         echo "reglas ADMIN VALIDAD :::::";
                         var_dump($this->reglasTemp[0]->{'campo'});
+                        var_dump($this->reglasTemp[1]->{'campo'});
+
 
                         $info = array(
                             "nombre" => $this->reglasTemp[0]->{'campo'},
 
-                            "codigo" => NULL,
+                            "codigo" => $this->reglasTemp[1]->{'campo'},
                             "identificacion" => NULL,
                             "email" => NULL,
                             "foto" => NULL,

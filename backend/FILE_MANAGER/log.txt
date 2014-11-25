@@ -33676,3 +33676,6 @@
 {"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 3
 {"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 3
 {"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 3
+{"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 3
+{"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 3
+{"posicion":2,"valor":"","type_error":"invalido"} EN LA LINEA 3
